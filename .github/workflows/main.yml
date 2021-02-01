@@ -27,6 +27,8 @@ jobs:
           python3 -m pip install --upgrade pip
           pip install -r requirementstest.txt
           python3 manage.py test .      
+        env:
+          DJANGO_HEROKU: FALSE
   deploy:
     needs: test
     # The type of runner that the job will run on
