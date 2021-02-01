@@ -121,7 +121,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 #Solo se ejecuta en el despliegue de HEROKU
-if not 'DJANGO_HEROKU' in os.environ:
+if not 'NO_TEST_DJANGO_HEROKU' in os.environ:
     # Configure Django App for Heroku.
     import django_heroku
     django_heroku.settings(locals())
