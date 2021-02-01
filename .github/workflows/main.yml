@@ -17,6 +17,8 @@ jobs:
   test:
     # The type of runner that the job will run on
     runs-on: Ubuntu-20.04
+    env:
+      DJANGO_HEROKU: False
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -26,9 +28,7 @@ jobs:
         run: |
           python3 -m pip install --upgrade pip
           pip install -r requirementstest.txt
-          python3 manage.py test .      
-        env:
-          DJANGO_HEROKU: FALSE
+          python3 manage.py test .
   deploy:
     needs: test
     # The type of runner that the job will run on
