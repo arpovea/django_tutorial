@@ -25,7 +25,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Pasar test.py
-        run: | 
+        run: |
           python3 -m pip install --upgrade pip
           pip install -r requirements.txt
           python3 manage.py test .      
