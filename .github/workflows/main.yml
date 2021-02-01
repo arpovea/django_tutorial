@@ -17,8 +17,6 @@ jobs:
   test:
     # The type of runner that the job will run on
     runs-on: Ubuntu-20.04
-    env:
-      DJANGO_HEROKU: False
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -33,6 +31,8 @@ jobs:
     needs: test
     # The type of runner that the job will run on
     runs-on: Ubuntu-20.04
+    env:
+      DJANGO_HEROKU: False
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/checkout@v2
