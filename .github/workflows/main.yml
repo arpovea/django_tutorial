@@ -7,8 +7,7 @@ name: test and deploy heroku
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   push:
-    branches: 
-      - master
+    branches: [ master ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -17,17 +16,16 @@ on:
 jobs:
   test:
     # The type of runner that the job will run on
-    runs-on: Ubuntu-20.04
+    runs-on: ubuntu-latest
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
       # Runs a single command using the runners shell
       - name: Pasar test.py
         run: |
           python3 -m pip install --upgrade pip
-          pip install -r requirements.txt
+          pip install -r requirementstest.txt
           python3 manage.py test .      
   deploy:
     needs: test
